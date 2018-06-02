@@ -11,5 +11,11 @@ int main() {
         scanf("%d", d[i];
     }
 
+    // waru
     while(true) {
+
+    }
+
+    return 0;
+}
 
