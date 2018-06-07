@@ -1,41 +1,29 @@
 #include "stdio.h"
 
 int main() {
-    int n, a, b, sum, i, t;
-
-    sum = 0; t = 0;
+    int n, a, b, sum, i, t, check;
 
     scanf("%d %d %d", &n ,&a, &b);
 
+    sum = 0;
 
-    for(i = 1; i <= n; n++) {
+    for(i = 1; i <= n; i++) {
 
+        check = i;
+        t = 0;
 
-    //     if ( i < 10 ) {
-    //         t = i;
-    //     } else if (10 < i && i < 100) {
-    //         t = n  / 10;
+        while ( check > 0) {
 
-    //         t += n % 10;
-    //     } else if (100 < i && i < 1000) {
-    //         t += n / 100;
+            if (check < 10) {
+                t += check;
+                break;
+            } else {
+                t += check % 10;
+                check /= 10;
+            }
+        }
 
-    //         t += (n / 10) % 10;
-
-    //         t += n % 10;
-
-    //     } else if ( 1000 <= i ) {
-        t = n / 1000;
-
-        t += (n / 100) % 10;
-
-        t += (n / 10) % 10;
-
-        t += n % 10;
-
-    //     }
-        if ( a <= t && t <= b)
-            sum += t;
+        if ( (a <= t) && (t <= b)) sum += i;
     }
 
     printf("%d\n", sum);
