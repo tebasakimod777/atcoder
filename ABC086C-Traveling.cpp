@@ -2,35 +2,40 @@
 using namespace std;
 
 int main() {
-    int N, i, time, pos_x, pos_y;
-    bool ans;
+    int N, i, v, t_amount, now_time;
+    bool can = true;
 
     cin >> N;
-    vector< vector<int> > inputs;
-    inputs.resize(N);
-    inputs.at()
+
+    cout << N << endl;
+    N += 1;
+    cout << N << endl;
+    vector<int> t(N), x(N), y(N);
+
+    cout << N << endl;
+    t.at(0) = x.at(0) = y.at(0) = 0;
+
+    cout << N << endl;
+    for (i = 0; i < N; i++) cin >> t.at(i + 1) >> x.at(i + 1) >> y.at(i + 1);
+    cout << N << endl;
 
     for( i = 0; i < N; i++) {
-        for (time = 0; time < inputs.at(i).at(1); time++) {
-            if( pos_x != inputs.at(i).at(2)) {
-                if (pos_x < inputs.at(i).at(2)) {
-                    pos_x++;
-                } else if (pos_x < inputs.at(i).at(2)) {
-                    pos_y--;
-                }
-            } else if (pos_y < inputs.at(i).at(3)){
-                if (pos_y < inputs.at(i).at(3)) {
-                    pos_y++;
-                } else if (pos_y < inputs.at(i).at(3)) {
-                    pos_y--;
-                }
-            }
+    cout << N << endl;
+        v = abs(x.at(i + 1) - x.at(i)) + abs(y.at(i + 1) - y.at(i));
+    cout << N << endl;
+        t_amount = t.at(i + 1) - t.at(i);
+    cout << N << endl;
+        if ( !(t_amount <= v)) {
+            can = false;
+            break;
         }
-        if( !((inputs.at(i).at(2) == pos_x) && (inputs.at(i).at(2) == pos_y)))
-            ans = false;
+        if ( !(t_amount % 2 == v % 2)) {
+            can = false;
+            break;
+        }
     }
 
-    if (ans) cout << "YES" << endl;
+    if (can) cout << "YES" << endl;
     else cout << "NO" << endl;
 
     return 0;
