@@ -2,11 +2,24 @@
 using namespace std;
 
 int main() {
-    string S1, S2, S3;
+    int A, B, i, ans;
 
-    cin >> S1 >> S2 >> S3;
+    ans = 0;
 
-    cout << S1.at(0) << S2.at(1) << S3.at(2) << endl;
+    cin >> A >> B;
+
+    for (i = A; i <= B; i++) {
+
+        int a = i / 10000;
+        int b = (i / 1000) % 10;
+
+        int c = (i % 100) / 10;
+        int d = i % 10;
+
+        if(a == d && b == c) ans++;
+    }
+
+    cout << ans << endl;
     
     return 0;
 }
