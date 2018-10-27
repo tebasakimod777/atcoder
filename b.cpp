@@ -2,47 +2,25 @@
 using namespace std;
 
 int main() {
-    int N, M, X, Y, i;
+    long a, b, k, i;
 
-    scanf("%d %d %d %d", &N, &M, &X, &Y);
-    vector <int> x(N);
-    vector <int> y(M);
+    cin >> a >> b >> k;
 
-    for ( i = 0; i < N; i++)
-        scanf("%d", &x.at(i));
+    while (1) {
+        // 高橋のターン
+        if (a % 2 == 1) a--;
+        a /= 2;
+        b += a;
+        i++;
+        if (i >= k) break;
 
-    sort(x.begin(), x.end());
-    reverse(x.begin(), x.end());
-
-
-    for ( i = 0; i < M; i++)
-        scanf("%d", &y.at(i));
-
-    sort(y.begin(), y.end());
-
-    // 条件1 X < Z <= Y
-    if (X >= Y) {
-        printf("War");
-        return 0;
+        // 青木のターン
+        if (b % 2 == 1) b--;
+        b /= 2;
+        a += b;
+        i++;
+        if (i >= k) break;
     }
 
-    // 条件1/2 X<Z, Z<=Y
-    if (x.at(0) >= y.at(0)) {
-        printf("War");
-        return 0;
-    }
-
-    if (X >= y.at(0)) {
-        printf("War");
-        return 0;
-    }
-
-    if (Y <= x.at(0)) {
-        printf("War");
-        return 0;
-    }
-
-    printf("No War");
-
-    return 0;
+    cout << a << ' '<< b << endl;
 }
