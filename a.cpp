@@ -2,16 +2,15 @@
 using namespace std;
 
 int main() {
-    int inputs[3];
-    int tmp, count, x, y;
-    scanf("%d %d %d", &inputs[0], &inputs[1], &inputs[2]);
+    string s;
+    
+    cin >> s;
 
-    sort(inputs, inputs + 3);
-
-    x = inputs[2] * 10 + inputs[1];
-    y = inputs[0];
-
-    printf("%d\n", x + y);
+    if (s.length() == 3) {
+        reverse(s.begin(), s.end());
+    } 
+    
+    cout << s << endl;
 
     return 0;
 }
