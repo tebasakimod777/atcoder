@@ -1,42 +1,24 @@
-#include <bits/stdc++.h>
-using namespace std;
+    #include <bits/stdc++.h>
+    using namespace std;
 
-int main() {
+    int main() {
+        int vv, ans;
 
-    int i, n, t, max_c = -1, flag = 0, minimam_c = 1000;
+        cin >> vv;
 
-    cin >> n >> t;
-
-    vector<int> C(n), T(n), good_C;
-
-    // 値を代入
-    for ( i = 0; i < n; i++) {
-        cin >> C.at(i) >> T.at(i);
-    }
-
-    // tより小さいものがあるかチェック
-    for ( i = 0; i < n; i++) {
-        if (T.at(i) <= t) {
-            flag = 1;
-            good_C.push_back(i);
+        if ( vv < 100) {
+            ans = 0;
+        } else if( 100 <= vv && vv <= 5000) {
+            ans = vv / 100;
+        } else if ( 6000 <= vv && vv <= 30000 ) {
+            ans = vv / 1000 + 50;
+        } else if (35000 <= vv && vv <= 70000) {
+            ans = (vv / 1000 - 30) / 5 + 80;
+        } else {
+            ans = 89;
         }
-    }
 
-    // for ( i = 0; i < good_C.size(); i++) {
-    //     cout << good_C.at(i) << endl;
-    // }
+        printf("%02d\n", ans);
 
-    if (flag == 0) {
-        printf("TLE\n");
         return 0;
     }
-
-    for (i = 0; i < good_C.size(); i++) {
-        if (C.at(good_C.at(i)) < minimam_c) {
-            minimam_c = C.at(good_C.at(i)); 
-        }
-    }
-
-    cout << minimam_c << endl;
-    return 0;
-}
