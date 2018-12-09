@@ -2,16 +2,11 @@
 using namespace std;
 
 int main() {
-    int n, a, b;
+    int a, b;
 
-    scanf("%d", &n);
+    cin >> a >> b;
 
-    if (n == 1) {
-        printf("Hello World\n");
-    } else if (n == 2) {
-        cin >> a >> b;
-        printf("%d", a + b);
-    }
+    cout << a - b << endl;
 
     return 0;
 }
