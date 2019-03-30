@@ -9,12 +9,11 @@ int main() {
     cin >> n >> s;
 
     for(int i = 0; i < n; i++) {
-        if(s.at(i) - 'R' == 0) {
+        if(s.at(i) == 'R') {
             sum++;
         }
     }
 
-    cout << s << endl;
     if(sum > (n / 2)) puts("Yes");
     else puts("No");
 
