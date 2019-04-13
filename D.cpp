@@ -5,7 +5,13 @@ using namespace std;
 
 typedef long long ll;
 
+
 int main() {
+    ll n, k;
+    string s;
+
+    cin >> n >> k >> s;
+
 
     return 0;
 }
