@@ -6,6 +6,15 @@ using namespace std;
 typedef long long ll;
 
 int main() {
+    int A, B, X;
+
+    cin >> A >> B;
+
+    X = max( A + (A - 1), B + (B - 1));
+
+    X = max(X, A + B);
+    
+    cout << X<< endl;
 
     return 0;
 }
