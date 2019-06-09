@@ -6,19 +6,27 @@ using namespace std;
 typedef long long ll;
 
 int main() {
-    string k;
-    int sum = 0;
+    int n, suma, sumb;
+    vector<int> w(100);
 
-    cin >> k;
+    cin >> n;
+    f(i, n) cin >> w.at(i);
 
-    for(int i = 0; i < k.size(); i++) {
-        if(k.at(i) == 'o') sum++;
+    suma = w.at(0);
+    sumb = 0;
+    for(int i = 1; i < n; i++) sumb += w.at(i);
+
+    int min = 10001;
+    for(int i = 1; i < n; i++) {
+        if(min > abs(suma - sumb)) {
+            min = abs(suma - sumb);
+        }
+
+        suma += w.at(i);
+        sumb -= w.at(i);
     }
 
-    sum += 15 - k.size();
-
-    if(sum >= 8) cout << "YES" << endl;
-    else cout << "NO" << endl;
-
+    cout << min << endl;
+ 
     return 0;
 }
