@@ -1,5 +1,6 @@
 # ignore binary file
 a.out
+a.exe
 *.swp
 .*.c.swp
 *.o
