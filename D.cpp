@@ -1,27 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-using namespace std;
 
 #define f(i, q) for(int i = 0; i < q; i++)  
 
 typedef long long ll;
 
-// 昇順にソート
+#define MAX 10000001
+
 int asc_comp(const void* a, const void* b){
     ll x = *(ll*)a;
     ll y = *(ll*)b;
     return x - y;
 }
-// 降順にソート
-int dec_comp(const void* a, const void* b){
-    ll x = *(ll*)a;
-    ll y = *(ll*)b;
-    return y - x;
-}
 
 int main() {
-    // qsort(in, a, sizeof(ll), dec_comp);
+    ll N;
+    scanf("%lld", &N);
+    ll ret[N];
 
+    ll at = 0;
+    for (ll i = 1; i * i <= N; i++) {
+        if (N % i == 0) {
+            ret[at] = i; 
+            at++;
+            if (i * i != N) {
+                ret[at] = N / i;
+                at++;
+            }
+        }
+    }
+    qsort(ret, N, sizeof(ll), asc_comp);
+    for (ll i; i < N; i++) {
+        printf("%lld\n", ret[i]);
+    }
     return 0;
 }

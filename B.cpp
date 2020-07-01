@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-using namespace std;
 
 #define f(i, q) for(int i = 0; i < q; i++)  
 
 typedef long long ll;
+
+#define MAX 200001
 
 // 昇順にソート
 int asc_comp(const void* a, const void* b){
@@ -22,6 +23,16 @@ int dec_comp(const void* a, const void* b){
 
 int main() {
     // qsort(in, a, sizeof(ll), dec_comp);
+    char inp[MAX], oup[MAX];
+    scanf("%s %s", inp, oup);
+    ll at = 0, sum = 0;
+    while(inp[at] != '\0') {
+        if (inp[at] != oup[at]) {
+            sum++;
+        }
+        at++;
+    }
+    printf("%lld\n", sum);
 
     return 0;
 }
