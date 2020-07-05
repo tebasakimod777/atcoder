@@ -10,7 +10,13 @@ int main() {
     ll N;
     cin >> N;
 
-    cout << ans << endl;
+    if (N % 1000)
+    {
+        cout << 1000 - (N % 1000) << endl;
+    } else {
+        cout << N % 1000 << endl;
+    }
+    
 
     return 0;
 }
