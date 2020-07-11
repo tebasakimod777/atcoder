@@ -9,7 +9,8 @@ using pstring = pair<int, string>;
 int main() {
     ll ans;
     ll N;
-    cin >> N;
+    string X;
+    cin >> N >> X;
 
     cout << ans << endl;
 
