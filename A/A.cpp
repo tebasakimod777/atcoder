@@ -12,15 +12,18 @@ using pint = pair<int, int>;
 using pstring = pair<int, string>;
 
 int main() {
-    ll N, K;
-    cin >> N >> K;
-    vector<ll> score(N+2,1);
-    for(ll i = 1; i<N+1; i++) cin >> score.at(i);
-    // 最初のK番目の点数を計算
-    for( ll i = K+1; i <= N; i++) {
-        if( score.at(i-K) < score.at(i) ) { cout << "Yes" << endl; }
-        else { cout << "No" << endl; }
-    }
+    ll ans;
+    ll N;
+    cin >> N;
 
+    if( 400 <= N and N <= 599) cout << 8;
+    else if( 600 <= N and N <= 799) cout << 7;
+    else if( 800 <= N and N <= 999) cout << 6;
+    else if( 1000 <= N and N <= 1199) cout << 5;
+    else if( 1200 <= N and N <= 1399) cout << 4;
+    else if( 1400 <= N and N <= 1599) cout << 3;
+    else if( 1600 <= N and N <= 1799) cout << 2;
+    else if( 1800 <= N and N <= 1999) cout << 1;
+    cout << endl;
     return 0;
 }
