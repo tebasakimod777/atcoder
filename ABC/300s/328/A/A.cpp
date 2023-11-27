@@ -7,14 +7,18 @@ using pint = pair<int, int>;
 using pstring = pair<int, string>;
 
 int main() {
-    ll ans;
-    string N;
-    cin >> N;
+    ll ans = 0;
+    ll N, X, S;
+    cin >> N >> X;
 
-    for (ll i = 0; i < N.length(); i++) {
-        cout << N.at(i) << ' ';
+    for (ll i = 0; i < N; i++) {
+        cin >> S;
+        if (S <= X) {
+            ans += S;
+        }
     }
 
-    cout << endl;
+    cout << ans << endl;
+
     return 0;
 }

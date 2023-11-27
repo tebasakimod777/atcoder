@@ -8,13 +8,10 @@ using pstring = pair<int, string>;
 
 int main() {
     ll ans;
-    string N;
+    ll N;
     cin >> N;
 
-    for (ll i = 0; i < N.length(); i++) {
-        cout << N.at(i) << ' ';
-    }
+    cout << ans << endl;
 
-    cout << endl;
     return 0;
 }
