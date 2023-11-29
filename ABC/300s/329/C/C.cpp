@@ -8,29 +8,50 @@ using pstring = pair<int, string>;
 
 int main() {
     ll ans;
-    ll N, Q;
+    ll N;
     string S;
-    cin >> N >> Q;
-    cin >> S;
+    cin >> N >> S;
 
-    vector<ll> co(N, 0);
-    vector<ll> re(N, 0);
-    for (ll i = 1; i < N; i++) {
-        if (S.at(i-1) == S.at(i))
-            co.at(i) = 1;
-    }
-    for (ll i = 1; i < N; i++) {
-        re.at(i) = co.at(i) + re.at(i-1);
+    std::map<char, ll> mp;
+    ll tmpi = 1;
+    for (ll i = 0; i < N - 1; i++) {
+        decltype(mp)::iterator it = mp.find(S.at(i));
+
+        if (S.at(i) != S.at(i+1)) {
+            if (it != mp.end()) { // すでにある場合
+                if (mp[S.at(i)] < tmpi) {
+                    mp[S.at(i)] = tmpi;
+                } // 小さい場合は更新しない
+            } else { // ない場合
+                mp[S.at(i)] = tmpi;
+            }
+            // printf("%c %lld\n", S.at(i), tmpi);
+            tmpi = 1;
+        } else {
+            tmpi++;
+        }
     }
 
-    // for (const auto &i: re) cout << i << ' ';
-    // cout << endl;
-
-    ll left, right;
-    for (ll i = 0; i < Q; i++) {
-        cin >> left >> right;
-        cout << re.at(right-1) - re.at(left-1) << endl;
+    // 最後の文字
+    decltype(mp)::iterator it = mp.find(S.at(N-1));
+    if (N == 1) {
+        mp[S.at(N-1)] = 1;
+    } else if (S.at(N-2) != S.at(N-1) && (it == mp.end())) {
+        mp[S.at(N-1)] = 1;
+    } else if (S.at(N-2) == S.at(N-1)) {
+        if (it == mp.end()) {
+            mp[S.at(N-1)] = tmpi;
+        } else if (mp[S.at(N-1)] < tmpi) {
+            mp[S.at(N-1)] = tmpi;
+        }
     }
+
+    ans = 0;
+    for (const auto &i: mp) {
+        ans += i.second;
+    }
+
+    cout << ans << endl;
 
     return 0;
 }
